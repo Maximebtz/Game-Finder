@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des événements{% endblock %}
+
+{% block body %}
+
+<div class="p-7">
+    <h1>Liste des événements</h1>
+
+    <div class="flex flex-col gap-10 p-8">
+        {% if playedEvents %}
+            <div class="flex flex-col gap-4">
+                <h2 class="text-xl font-bold">Événements joués</h2>
+                {% include 'event/components/event_list.html.twig' with {'events': playedEvents, 'gamesList': playedGamesList} %}
+            </div>
+        {% endif %}
+        
+        {% if organizedEvents %}
+            <div>
+                <h2 class="text-xl font-bold">Événements organisés</h2>
+                {% include 'event/components/event_list.html.twig' with {'events': organizedEvents, 'gamesList': organizedGamesList} %}
+            </div>
+        {% endif %}
+        
+        {% if invitedEvents %}
+            <div>
+                <h2 class="text-xl font-bold">Événements à venir</h2>
+                {% include 'event/components/event_list.html.twig' with {'events': invitedEvents, 'gamesList': invitedGamesList} %}
+            </div>
+        {% endif %}
+        
+        {% if pastEvents %}
+            <div>
+                <h2 class="text-xl font-bold">Événements passés</h2>
+                {% include 'event/components/event_list.html.twig' with {'events': pastEvents, 'gamesList': pastGamesList} %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+    
+{% endblock %}

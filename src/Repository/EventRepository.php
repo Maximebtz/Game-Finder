@@ -54,4 +54,37 @@ class EventRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    // liste des évènements organisés par un utilisateur (organizer_id dans la table event)
+    public function findByOrganizer(User $user): array
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.organizer = :user')
+            ->setParameter('user', $user)
+            ->getQuery()
+            ->getResult();
+    }
+
+    // liste des évènements auxquels un utilisateur est invité (user_id dans la table association event_user)
+    public function findByInvited(User $user): array
+    {
+        return $this->createQueryBuilder('e')
+            ->innerJoin('e.invitations', 'i')
+            ->where('i.user = :user')
+            ->andWhere('i.status = :status')
+            ->setParameter('user', $user)
+            ->setParameter('status', 'pending')
+            ->getQuery()
+            ->getResult();
+    }
+
+    // liste des events passés
+    public function findPastEvents(): array
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.date < :now')
+            ->setParameter('now', new \DateTime())
+            ->getQuery()
+            ->getResult();
+    }
 }

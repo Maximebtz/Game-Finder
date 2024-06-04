@@ -1,0 +1,17 @@
+<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  gap-4 justify-center items-center mt-4">
+    {% for event in events %}
+        <li class="rounded-lg flex flex-col justify-center  shadow-card p-4">
+            <h3 class="text-3xl">{{ event.title }}</h3>
+            <p>Date: {{ event.date|date('d/m/Y H:i') }}</p>
+            <p>Organisateur: {{ event.organizer.username }}</p>
+            <p>Participants:</p>
+            <ul>
+                {% for participant in event.participants %}
+                    <li>{{ participant.username }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% else %}
+        <li>Aucun événement trouvé.</li>
+    {% endfor %}
+</ul>

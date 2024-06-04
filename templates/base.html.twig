@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         {% block stylesheets %}
@@ -19,28 +20,47 @@
     </head>
     <body>
         {% if app.user %}
-        {{ render(controller(
-            'App\\Controller\\FollowController::followList',
-            { 'user': app.user }
-        )) }}
+        <div class="hidden md:block">
+            {{ render(controller(
+                'App\\Controller\\FollowController::followList',
+                { 'user': app.user }
+            )) }}
+        </div>
         {% endif %}
 
-        {% if app.request.get('_route') == 'app_home' %}
-            {% include "components/nav-bar.html.twig" with {'home': 'block', 'profile': 'hidden', 'friends': 'hidden', 'games': 'hidden', 'events': 'hidden'} %}
-        {% elseif app.request.get('_route') == 'user_profile' %}
-            {% include "components/nav-bar.html.twig" with {'home': 'hidden', 'profile': 'block', 'friends': 'hidden', 'games': 'hidden', 'events': 'hidden'} %}
-        {# {% elseif app.request.get('_route') == 'app_friends' %}
-            {% include "components/nav-bar.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'block', 'games': 'hidden', 'events': 'hidden'} %}
-        {% elseif app.request.get('_route') == 'app_games' %}
-            {% include "components/nav-bar.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'hidden', 'games': 'block', 'events': 'hidden'} %}
-        {% elseif app.request.get('_route') == 'app_events' %}
-            {% include "components/nav-bar.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'hidden', 'games': 'hidden', 'events': 'block'} %}
-        #}
-        {% else %} 
-            {% include "components/nav-bar.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'hidden', 'games': 'hidden', 'events': 'hidden'} %}
-        {% endif %}
+        <div class="hidden md:block">
+            {% if app.request.get('_route') == 'app_home' %}
+                {% include "components/nav-bar.html.twig" with {'home': 'block', 'profile': 'hidden', 'friends': 'hidden', 'games': 'hidden', 'events': 'hidden'} %}
+            {% elseif app.request.get('_route') == 'user_profile' %}
+                {% include "components/nav-bar.html.twig" with {'home': 'hidden', 'profile': 'block', 'friends': 'hidden', 'games': 'hidden', 'events': 'hidden'} %}
+            {% elseif app.request.get('_route') == 'friend_list' %}
+                {% include "components/nav-bar.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'block', 'games': 'hidden', 'events': 'hidden'} %}
+            {% elseif app.request.get('_route') == 'game_show' %}
+                {% include "components/nav-bar.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'hidden', 'games': 'block', 'events': 'hidden'} %}
+            {% elseif app.request.get('_route') == 'event_list' %}
+                {% include "components/nav-bar.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'hidden', 'games': 'hidden', 'events': 'block'} %}
+            {% else %} 
+                {% include "components/nav-bar.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'hidden', 'games': 'hidden', 'events': 'hidden'} %}
+            {% endif %}
+        </div>
+        <div class="md:hidden block">
+            {% if app.request.get('_route') == 'app_home' %}
+                {% include "components/nav-bar-mobile.html.twig" with {'home': 'block', 'profile': 'hidden', 'friends': 'hidden', 'games': 'hidden', 'events': 'hidden'} %}
+            {% elseif app.request.get('_route') == 'user_profile' %}
+                {% include "components/nav-bar-mobile.html.twig" with {'home': 'hidden', 'profile': 'block', 'friends': 'hidden', 'games': 'hidden', 'events': 'hidden'} %}
+            {% elseif app.request.get('_route') == 'friend_list' %}
+                {% include "components/nav-bar-mobile.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'block', 'games': 'hidden', 'events': 'hidden'} %}
+            {% elseif app.request.get('_route') == 'game_show' %}
+                {% include "components/nav-bar-mobile.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'hidden', 'games': 'block', 'events': 'hidden'} %}
+            {% elseif app.request.get('_route') == 'event_list' %}
+                {% include "components/nav-bar-mobile.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'hidden', 'games': 'hidden', 'events': 'block'} %}
+            {% else %} 
+                {% include "components/nav-bar-mobile.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'hidden', 'games': 'hidden', 'events': 'hidden'} %}
+            {% endif %}
+        </div>
+
         
-        <main class="ml-20 mr-[108px]">
+        <main class="ml-5 mr-5 my-5 md:ml-20 md:mr-[108px] md:my-0 z-0">
             {{ render(controller(
                 'App\\Controller\\InvitationController::headerSearch'
             )) }}

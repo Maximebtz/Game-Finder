@@ -1,11 +1,11 @@
 
-<nav class="fixed top-0 left-0 h-svh bg-light-purple w-20 flex flex-col items-center gap-20 pt-8">
-    <a href="{{path('app_home')}}">
+<nav class="fixed bottom-0 left-0 h-16 bg-light-purple w-full flex flex-row">
+    {# <a href="{{path('app_home')}}">
         <img src="{{asset('img/logo.svg')}}" alt="logo gamefinder" class="w-8 h-8 drop-shadow-btn">
-    </a>
-    <ul class="w-full flex flex-col items-center">
-        <li class="relative w-full flex justify-center">
-            <div class="{{home}} h-full w-1 bg-purple-gradient absolute left-0 top-0 rounded-r-[4px]"></div>
+    </a> #}
+    <ul class="w-full flex flex-row items-center">
+        <li class="relative w-full h-full flex justify-center">
+            <div class="{{home}} h-1 w-full bg-purple-gradient absolute left-0 bottom-0 rounded-t-[4px]"></div>
             <a href="{{path('app_home')}}">
                 <svg width="54" height="53" viewBox="0 0 54 53" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_5_41)">
@@ -36,8 +36,8 @@
             </a>
         </li>
         {% if app.user %}
-            <li class="relative w-full flex justify-center">
-                <div class="{{profile}} h-full w-1 bg-purple-gradient absolute left-0 top-0 rounded-r-[4px]"></div>
+            <li class="relative w-full h-full flex justify-center">
+                <div class="{{profile}} h-1 w-full bg-purple-gradient absolute -left-2 bottom-0 rounded-t-[4px]"></div>
                 <a href="{{path("user_profile")}}">
                     <svg width="54" height="55" viewBox="0 0 54 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_d_5_30)">
@@ -62,8 +62,8 @@
                     </svg>
                 </a>
             </li>
-            <li class="relative w-full flex justify-center">
-                <div class="{{friends}} h-full w-1 bg-purple-gradient absolute left-0 top-0 rounded-r-[4px]"></div>
+            <li class="relative w-full h-full flex justify-center">
+                <div class="{{friends}} h-1 w-full bg-purple-gradient absolute -left-2 bottom-0 rounded-t-[4px]"></div>
                 <a href="{{path('friends_list')}}">
                     <svg width="54" height="49" viewBox="0 0 54 49" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_d_5_40)">
@@ -89,8 +89,8 @@
                 </a>
             </li>
         {% endif %}
-        <li class="relative w-full flex justify-center">
-            <div class="{{games}} h-full w-1 bg-purple-gradient absolute left-0 top-0 rounded-r-[4px]"></div>
+        <li class="relative w-full h-full flex justify-center">
+            <div class="{{games}} h-1 w-full bg-purple-gradient absolute -left-2 bottom-0 rounded-t-[4px]"></div>
             <a href="{{path('game_show')}}">
                 <svg width="54" height="55" viewBox="0 0 54 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d_5_42)">
@@ -121,8 +121,8 @@
             </a>
         </li>
         {% if app.user %}
-            <li class="relative w-full flex justify-center">
-                <div class="{{events}} h-full w-1 bg-purple-gradient absolute left-0 top-0 rounded-r-[4px]"></div>
+            <li class="relative w-full h-full flex justify-center">
+                <div class="{{events}} h-1 w-full bg-purple-gradient absolute -left-2 bottom-0 rounded-t-[4px]"></div>
                 <a href="{{path('event_list')}}">
                     <svg width="54" height="55" viewBox="0 0 54 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_d_5_53)">
