@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Invitation !{% endblock %}
+
+{% block body %}
+    {{invitation.eventId.organizerId.username}} vous invite à rejoindre l'évènement {{invitation.event.name}} le {{invitation.event.date|date('d/m/Y')}} à {{invitation.event.date|date('H:i')}}.
+{% endblock %}

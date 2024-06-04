@@ -1,3 +1,164 @@
-body {
-    background-color: skyblue;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
 }
+ 
+/************** Body **************/
+body {
+   font-family: 'MuseoModerno';
+   min-height: 100vh;
+   
+}
+
+#logo {
+   right: -500px !important;
+}
+
+*::-webkit-scrollbar {
+   width: 6px;
+   height: 6px;
+   z-index: 5;
+   border-radius: 6px;
+}
+
+*::-webkit-scrollbar-track {
+   background: rgb(240, 240, 240);
+
+}
+
+*::-webkit-scrollbar-thumb {
+   background: black;
+   border-radius: 6px;
+   transition: all .5s ease-in-out;
+   z-index: 5;
+
+}
+
+*::-webkit-scrollbar-thumb:hover {
+   background: rgb(50, 50, 50);
+}
+
+*::selection {
+   background-color: #BD00FF;
+   color: white;
+}
+
+/************** Fonts **************/
+@font-face {
+   font-family: "MuseoModerno";
+   src: url("/public/fonts/MuseoModerno/static/MuseoModerno-Thin.ttf");
+   font-weight: 100;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "MuseoModerno";
+   src: url("/public/fonts/MuseoModerno/static/MuseoModerno-ExtraLight.ttf");
+   font-weight: 200;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "MuseoModerno";
+   src: url("/public/fonts/MuseoModerno/static/MuseoModerno-Light.ttf");
+   font-weight: 300;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "MuseoModerno";
+   src: url("/public/fonts/MuseoModerno/static/MuseoModerno-Regular.ttf");
+   font-weight: 400;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "MuseoModerno";
+   src: url("/public/fonts/MuseoModerno/static/MuseoModerno-Medium.ttf");
+   font-weight: 500;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "MuseoModerno";
+   src: url("/public/fonts/MuseoModerno/static/MuseoModerno-SemiBold.ttf");
+   font-weight: 600;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "MuseoModerno";
+   src: url("/public/fonts/MuseoModerno/static/MuseoModerno-Bold.ttf");
+   font-weight: 700;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "MuseoModerno";
+   src: url("/public/fonts/MuseoModerno/static/MuseoModerno-ExtraBold.ttf");
+   font-weight: 800;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "MuseoModerno";
+   src: url("/public/fonts/MuseoModerno/static/MuseoModerno-Black.ttf");
+   font-weight: 900;
+   font-style: normal;
+}
+
+@layer components {
+   .background-image-gameboy {
+       @apply h-screen bg-cover bg-center;
+       background-image: url('/public/img/Illustration-purple.png');
+   }
+
+   .background-image-play {
+       @apply h-screen bg-cover bg-center;
+       background-image: url('/public/img/Playflowillustration.jpeg');
+   }
+}
+
+a{
+   text-decoration: none;
+}
+
+p {
+   opacity: 85%;
+}
+
+h1 {
+   font-size: 2.5rem;
+}
+
+h2 {
+   font-size: 2rem;
+}
+
+input {
+   width: 100%;
+   border-radius: 0.75rem;
+   border: 1px solid #D86AFF;
+   padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+   box-shadow: 0 0 15px rgba(98,25,109,0.20);
+}
+
+input:focus {
+   outline-color: #BD00FF;
+}
+
+input[type="checkbox"] {
+   width: max-content;
+   height: 100%;;
+   accent-color: #BD00FF;
+   box-shadow: none;
+   padding: none;
+}
+

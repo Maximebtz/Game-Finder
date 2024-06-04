@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel évènement{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.3.3/build/spline-viewer.js"></script>
+    {% block importmap %}{{ importmap('app') }}{% endblock %} 
+{% endblock %}
+
+{% block body %}
+<div class="w-full min-h-svh flex justify-center items-center">
+    {{ form_errors(form) }}
+
+    {{ form_start(form, {
+        attr: {'class': 'flex flex-col gap-5'}
+    }) }}
+        <h1>
+            Ajoutez un évènement ici !
+        </h1>
+        <div class="flex flex-col gap-4">
+            {{ form_row(form.date) }}
+            {{ form_row(form.place) }}
+            {{ form_row(form.max_players) }}
+            {{ form_row(form.participants) }}
+        </div>
+
+        <div class="w-full flex justify-end">
+            {{ include('components/btn/button.html.twig', {'text':'Créer'}) }}
+        </div>
+    {{ form_end(form) }}
+</div>
+    
+{% endblock %}
+

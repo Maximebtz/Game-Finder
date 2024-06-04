@@ -1,0 +1,32 @@
+<div class="fixed top-0 right-0 h-svh w-max flex flex-col items-center gap-20 py-7 pr-7">
+    <div class="flex flex-col items-center w-20 h-full bg-light-purple rounded-xl pt-5">
+        {% for friend in follows %}
+            <div class="w-max">
+                {% if friend.follower.avatar %}
+
+                    <img src="{{ friend.followed.avatar }}" alt="{{ friend.username }}" class="w-20 h-20 rounded-full">
+
+                {% else %}
+                    
+                    <div id="random-color" class="w-12 h-12 rounded-full flex items-center justify-center text-white text-2xl">
+                        {{ friend.followed.username|slice(0, 1) }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<script>
+    // Random color background for user avatar
+    var randomColor = document.getElementById('random-color');
+    randomColor.style.backgroundColor = getRandomColor();
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script>

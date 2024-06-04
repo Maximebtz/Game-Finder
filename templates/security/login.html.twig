@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+<div class="w-full min-h-svh flex justify-center items-center">
+    <form method="post" class="flex flex-col gap-5">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+
+        <h1>
+            Connectez vous ici !
+        </h1>
+        <div class="flex flex-col gap-4">
+            <label for="inputUsername" class="flex flex-col gap-3">
+                Username
+                <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+            </label>
+            <label for="inputPassword" class="flex flex-col gap-3">
+                Password
+                <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+            </label>
+            <p>
+                Pas encore de compte ? <a href="{{ path('app_register') }}" class="font-semibold underline hover:opacity-60 hover:no-underline">Inscrivez-vous</a>
+            </p>
+        </div>
+
+        <input type="hidden" name="_csrf_token"
+            value="{{ csrf_token('authenticate') }}">
+        <div class="w-full flex justify-end">
+            {% include 'components/btn/button.html.twig' with {'text':'Connection'} %}
+        </div>
+    </form>
+</div>
+{% endblock %}

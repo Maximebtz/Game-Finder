@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste de jeux{% endblock %}
+
+{% block body %}
+<div class="flex flex-col gap-10 w-full h-dvh p-7">
+
+    <h2 class="flex gap-2 font-bold">
+        Jeux
+        <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_5_66)">
+                <rect x="15" y="15" width="24" height="24" rx="4" fill="url(#paint0_linear_5_66)" />
+                <path
+                    d="M19.7272 22.7654C21.2335 22.7654 22.4545 21.5443 22.4545 20.0381C22.4545 18.5319 21.2335 17.3108 19.7272 17.3108C18.221 17.3108 17 18.5319 17 20.0381C17 21.5443 18.221 22.7654 19.7272 22.7654Z"
+                    fill="#FAECFF" />
+                <path
+                    d="M19.7272 37.3108C21.2335 37.3108 22.4545 36.0898 22.4545 34.5836C22.4545 33.0773 21.2335 31.8563 19.7272 31.8563C18.221 31.8563 17 33.0773 17 34.5836C17 36.0898 18.221 37.3108 19.7272 37.3108Z"
+                    fill="#FAECFF" />
+                <path
+                    d="M26.9999 30.0381C28.5062 30.0381 29.7272 28.8171 29.7272 27.3109C29.7272 25.8046 28.5062 24.5836 26.9999 24.5836C25.4937 24.5836 24.2727 25.8046 24.2727 27.3109C24.2727 28.8171 25.4937 30.0381 26.9999 30.0381Z"
+                    fill="#FAECFF" />
+                <path
+                    d="M34.2728 22.7654C35.779 22.7654 37 21.5443 37 20.0381C37 18.5319 35.779 17.3108 34.2728 17.3108C32.7666 17.3108 31.5455 18.5319 31.5455 20.0381C31.5455 21.5443 32.7666 22.7654 34.2728 22.7654Z"
+                    fill="#FAECFF" />
+                <path
+                    d="M34.2728 37.3108C35.779 37.3108 37 36.0898 37 34.5836C37 33.0773 35.779 31.8563 34.2728 31.8563C32.7666 31.8563 31.5455 33.0773 31.5455 34.5836C31.5455 36.0898 32.7666 37.3108 34.2728 37.3108Z"
+                    fill="#FAECFF" />
+            </g>
+            <defs>
+                <filter id="filter0_d_5_66" x="0" y="0" width="54" height="54" filterUnits="userSpaceOnUse"
+                    color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                    <feColorMatrix in="SourceAlpha" type="matrix"
+                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                    <feOffset />
+                    <feGaussianBlur stdDeviation="7.5" />
+                    <feComposite in2="hardAlpha" operator="out" />
+                    <feColorMatrix type="matrix"
+                        values="0 0 0 0 0.867352 0 0 0 0 0.4875 0 0 0 0 1 0 0 0 0.5 0" />
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_5_66" />
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_5_66" result="shape" />
+                </filter>
+                <linearGradient id="paint0_linear_5_66" x1="17.3001" y1="46.2" x2="49.2578" y2="41.422"
+                    gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#D86AFF" />
+                    <stop offset="1" stop-color="#BD00FF" />
+                </linearGradient>
+            </defs>
+        </svg>
+    </h2>
+    <div id="games" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5  gap-4 justify-center items-center">
+        {% for game in games %}
+            {{ include('components/game/card.html.twig', {'game': game, 'path': ''}) }}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
