@@ -3,7 +3,7 @@
 {% block title %}Profil{% endblock %}
 
 {% block body %}
-<div class="flex flex-col md:flex-row w-full min-h-dvh h-max py-20">
+<div class="flex flex-col md:gap-0 gap-10 md:flex-row w-full min-h-dvh h-max md:py-20">
     {# Partie gauche #}
     <div class="md:w-1/2 w-full md:h-dvh h-max flex justify-center items-center md:sticky top-0">
         <div class="flex flex-col items-center border rounded-xl w-max p-6 shadow-card">
@@ -21,7 +21,7 @@
     </div>
     <hr class="md:flex hidden border-r h-dvh border-zinc-200  sticky top-10">
     {# Partie droite #}
-    <div class="flex flex-col gap-10 p-8">
+    <div class="flex flex-col gap-10 md:p-8">
         {% if playedGamesList %}
             <div>
                 <h2 class="flex gap-2 font-bold">

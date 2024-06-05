@@ -33,7 +33,7 @@
                 {% include "components/nav-bar.html.twig" with {'home': 'block', 'profile': 'hidden', 'friends': 'hidden', 'games': 'hidden', 'events': 'hidden'} %}
             {% elseif app.request.get('_route') == 'user_profile' %}
                 {% include "components/nav-bar.html.twig" with {'home': 'hidden', 'profile': 'block', 'friends': 'hidden', 'games': 'hidden', 'events': 'hidden'} %}
-            {% elseif app.request.get('_route') == 'friend_list' %}
+            {% elseif app.request.get('_route') == 'friends_list' %}
                 {% include "components/nav-bar.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'block', 'games': 'hidden', 'events': 'hidden'} %}
             {% elseif app.request.get('_route') == 'game_show' %}
                 {% include "components/nav-bar.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'hidden', 'games': 'block', 'events': 'hidden'} %}
@@ -48,7 +48,7 @@
                 {% include "components/nav-bar-mobile.html.twig" with {'home': 'block', 'profile': 'hidden', 'friends': 'hidden', 'games': 'hidden', 'events': 'hidden'} %}
             {% elseif app.request.get('_route') == 'user_profile' %}
                 {% include "components/nav-bar-mobile.html.twig" with {'home': 'hidden', 'profile': 'block', 'friends': 'hidden', 'games': 'hidden', 'events': 'hidden'} %}
-            {% elseif app.request.get('_route') == 'friend_list' %}
+            {% elseif app.request.get('_route') == 'friends_list' %}
                 {% include "components/nav-bar-mobile.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'block', 'games': 'hidden', 'events': 'hidden'} %}
             {% elseif app.request.get('_route') == 'game_show' %}
                 {% include "components/nav-bar-mobile.html.twig" with {'home': 'hidden', 'profile': 'hidden', 'friends': 'hidden', 'games': 'block', 'events': 'hidden'} %}
@@ -60,7 +60,7 @@
         </div>
 
         
-        <main class="ml-5 mr-5 my-5 md:ml-20 md:mr-[108px] md:my-0 z-0">
+        <main class="ml-5 mr-5 my-5 mb-20 md:mb-0 md:ml-20 md:mr-[108px] md:my-0 z-0">
             {{ render(controller(
                 'App\\Controller\\InvitationController::headerSearch'
             )) }}
