@@ -1,5 +1,7 @@
 <header class="w-full flex justify-center items-center md:p-7 md:pb-0 pb-8">
-    {% include "components/search/search-bar.html.twig" %}
+    {% if app.user %}
+        {% include "components/search/search-bar.html.twig" %}
+    {% endif %}
     {% if app.user %}
         <div class="flex gap-5 z-50">
             <div class="relative">

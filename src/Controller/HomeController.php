@@ -25,8 +25,13 @@ class HomeController extends AbstractController
     public function index(EventRepository $eventRepository, InvitationRepository $invitationRepository): Response
     {
         $games = $this->boardGameGeekApiService->getGames();
-        $nbrOfEventsOrganizedByUser = $eventRepository->countEventsByUser($this->getUser());
-        $nbrOfEventsPlayedByUser = $eventRepository->countEventsByParticipant($this->getUser());
+        $nbrOfEventsOrganizedByUser = 0;
+        $nbrOfEventsPlayedByUser = 0;
+
+        if ($this->getUser()) {
+            $nbrOfEventsOrganizedByUser = $eventRepository->countEventsByUser($this->getUser());
+            $nbrOfEventsPlayedByUser = $eventRepository->countEventsByParticipant($this->getUser());
+        }
 
         // $pendingInvitations = $invitationRepository->findBy(['user' => $this->getUser(), 'status' => 'PENDING']);
         

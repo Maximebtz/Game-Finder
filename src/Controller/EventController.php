@@ -6,13 +6,15 @@ use App\Entity\Event;
 use App\Form\EventType;
 use App\Entity\Invitation;
 use App\Enum\InvitationStatus;
-use App\Repository\EventRepository;
 use App\Repository\UserRepository;
+use App\Repository\EventRepository;
 use App\Service\BoardGameGeekApiService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/event', name: 'event_')]
@@ -141,10 +143,19 @@ class EventController extends AbstractController
         ]);
     }
 
-
     private function getGamesForEvents(array $events): array
     {
         $gameIds = array_map(fn ($event) => $event->getGameId(), $events);
         return $this->boardGameGeekApiService->getGamesByIds($gameIds);
     }
+
+    // #[Route('/api/game-finder/allEvents', name: 'api_events', methods: ['GET'])]
+    // public function getAllEvents(EventRepository $eventRepository): JsonResponse
+    // {
+    //     // Fetching all events
+    //     $events = $eventRepository->findAll();
+
+    //     // Return the events as JSON
+    //     return $this->json($events, JsonResponse::HTTP_OK, [], ['groups' => 'event:read']);
+    // }
 }
