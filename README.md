@@ -28,12 +28,12 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
 ]
 ```
 ### Obtenir un Utilisateur
-**URL**: /users/{id}
-**Méthode**: GET
-**Description**: Récupère les détails d'un utilisateur spécifique.
-**Paramètres URL**:
-**id**: L'identifiant de l'utilisateur.
-**Réponse**:
+- **URL**: /users/{id}
+- **Méthode**: GET
+- **Description**: Récupère les détails d'un utilisateur spécifique.
+- **Paramètres URL**:
+- **id**: L'identifiant de l'utilisateur.
+- **Réponse**:
 {
   "id": 2,
   "username": "josé",
@@ -43,10 +43,10 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
 ## Points d'accès Événement
 
 ### Obtenir une Collection d'Événements
-**URL**: /events
-**Méthode**: GET
-**Description**: Récupère une collection de tous les événements.
-**Réponse**:
+- **URL**: /events
+- **Méthode**: GET
+- **Description**: Récupère une collection de tous les événements.
+- **Réponse**:
 ```json
 [
   {
@@ -72,12 +72,12 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
 
 
 ### Obtenir un Événement
-**URL**: /events/{id}
-**Méthode**: GET
-**Description**: Récupère les détails d'un événement spécifique.
-**Paramètres URL**:
-**id**: L'identifiant de l'événement.
-**Réponse**:
+- **URL**: /events/{id}
+- **Méthode**: GET
+- **Description**: Récupère les détails d'un événement spécifique.
+- **Paramètres URL**:
+- **id**: L'identifiant de l'événement.
+- **Réponse**:
 ```json
 {
   "id": 1,
@@ -91,10 +91,10 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
 ```
 
 ##Créer un Événement
-**URL**: /events
-**Méthode**: POST
-**Description**: Crée un nouvel événement.
-**Corps de la Requête**:
+- **URL**: /events
+- **Méthode**: POST
+- **Description**: Crée un nouvel événement.
+- **Corps de la Requête**:
 ```json
 {
   "title": "Nouvel Événement",
@@ -105,7 +105,7 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
   "organizer": "/users/1"
 }
 ```
-**Réponse**:
+- **Réponse**:
 ```json
 {
   "id": 3,
