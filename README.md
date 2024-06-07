@@ -1,4 +1,4 @@
-Game-Finder
+# Game-Finder
 
 # Documentation de l'API Geme-Finder
 
@@ -17,13 +17,13 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
 [
   {
     "id": 1,
-    "username": "john_doe",
-    "email": "john@example.com"
+    "username": "jean_eude",
+    "email": "jeaneaude@example.com"
   },
   {
     "id": 2,
-    "username": "jane_doe",
-    "email": "jane@example.com"
+    "username": "josé",
+    "email": "jose@example.com"
   }
 ]
 ```
@@ -35,9 +35,9 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
 **id**: L'identifiant de l'utilisateur.
 **Réponse**:
 {
-  "id": 1,
-  "username": "john_doe",
-  "email": "john@example.com"
+  "id": 2,
+  "username": "josé",
+  "email": "jose@example.com"
 }
 
 ## Points d'accès Événement
@@ -55,7 +55,7 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
     "date": "2023-12-25T18:00:00+00:00",
     "max_players": 10,
     "game_id": 1,
-    "place": "New York",
+    "place": "Chez moi",
     "organizer": "/users/1"
   },
   {
@@ -64,7 +64,7 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
     "date": "2024-01-01T12:00:00+00:00",
     "max_players": 20,
     "game_id": 2,
-    "place": "Los Angeles",
+    "place": "Chez jean-eude",
     "organizer": "/users/2"
   }
 ]
@@ -85,7 +85,7 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
   "date": "2023-12-25T18:00:00+00:00",
   "max_players": 10,
   "game_id": 1,
-  "place": "New York",
+  "place": "Chez moi",
   "organizer": "/users/1"
 }
 ```
@@ -101,7 +101,7 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
   "date": "2023-12-25T18:00:00+00:00",
   "max_players": 10,
   "game_id": 1,
-  "place": "New York",
+  "place": "Chez moi",
   "organizer": "/users/1"
 }
 ```
@@ -113,7 +113,7 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
   "date": "2023-12-25T18:00:00+00:00",
   "max_players": 10,
   "game_id": 1,
-  "place": "New York",
+  "place": "Chez moi",
   "organizer": "/users/1"
 }
 ```
