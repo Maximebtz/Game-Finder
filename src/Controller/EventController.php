@@ -148,14 +148,4 @@ class EventController extends AbstractController
         $gameIds = array_map(fn ($event) => $event->getGameId(), $events);
         return $this->boardGameGeekApiService->getGamesByIds($gameIds);
     }
-
-    // #[Route('/api/game-finder/allEvents', name: 'api_events', methods: ['GET'])]
-    // public function getAllEvents(EventRepository $eventRepository): JsonResponse
-    // {
-    //     // Fetching all events
-    //     $events = $eventRepository->findAll();
-
-    //     // Return the events as JSON
-    //     return $this->json($events, JsonResponse::HTTP_OK, [], ['groups' => 'event:read']);
-    // }
 }

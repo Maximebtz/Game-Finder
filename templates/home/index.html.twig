@@ -112,5 +112,18 @@
         </div>
     </section>
 </div>
+<script>
+    fetch('/event/api/game-finder/allEvents')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // Affiche la liste des événements
+        
+    })
+    .catch(error => {
+        console.error('Error fetching events:', error);
+    });
+
+
+</script>
 
 {% endblock %}

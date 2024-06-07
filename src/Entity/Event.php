@@ -2,35 +2,63 @@
 
 namespace App\Entity;
 
-use App\Repository\EventRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\Post;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\EventRepository;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\GetCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: EventRepository::class)]
+#[ApiResource(
+    operations: [
+    new Get( normalizationContext: ['groups' => ['event:list']] ),
+    new GetCollection( normalizationContext: ['groups' => ['event:item']] ),
+    new Post(
+        denormalizationContext: ['groups' => ['event:write']],
+        validationContext: ['groups' => ['Default', 'create']]
+    )
+    ]
+)]
 class Event
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column] 
+    #[Groups(['event:list', 'event:item'])]
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]   
+    #[Groups(['event:list', 'event:item', 'event:write'])]
     private ?string $title = null;
 
     #[ORM\Column]
+    #[Groups(['event:list', 'event:item', 'event:write'])]
+    #[Assert\NotBlank(groups: ['create'])]
     private ?\DateTimeImmutable $date = null;
 
     #[ORM\Column]
+    #[Groups(['event:list', 'event:item', 'event:write'])]
+    #[Assert\NotBlank(groups: ['create'])]
     private ?int $max_players = null;
 
     #[ORM\Column]
+    #[Groups(['event:list', 'event:item', 'event:write'])]
+    #[Assert\NotBlank(groups: ['create'])]
     private ?int $game_id = null;
 
     #[ORM\Column(length: 255)]
+    #[Groups(['event:list', 'event:item', 'event:write'])]
+    #[Assert\NotBlank(groups: ['create'])]
     private ?string $place = null;
-
+    
     #[ORM\ManyToOne(inversedBy: 'events')]
+    #[Groups(['event:list', 'event:item', 'event:write'])]
+    #[Assert\NotBlank(groups: ['create'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $organizer = null;
 
