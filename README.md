@@ -34,11 +34,13 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
 - **Paramètres URL**:
 - **id**: L'identifiant de l'utilisateur.
 - **Réponse**:
+```json
 {
   "id": 2,
   "username": "josé",
   "email": "jose@example.com"
 }
+```
 
 ## Points d'accès Événement
 
