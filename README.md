@@ -1,5 +1,3 @@
-# Game-Finder
-
 # Documentation de l'API Geme-Finder
 
 ## Introduction
