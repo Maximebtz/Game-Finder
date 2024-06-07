@@ -9,7 +9,7 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
 ## Points d'accès Utilisateur
 
 ### Obtenir une Collection d'Utilisateurs
-- **URL**: `/users` <br/>
+- **URL**: `/users`
 - **Méthode**: `GET`
 - **Description**: Récupère une collection de tous les utilisateurs.
 - **Réponse**: 
