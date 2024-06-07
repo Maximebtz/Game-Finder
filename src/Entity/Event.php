@@ -57,9 +57,9 @@ class Event
     private ?string $place = null;
     
     #[ORM\ManyToOne(inversedBy: 'events')]
+    #[ORM\JoinColumn(nullable: false)]
     #[Groups(['event:list', 'event:item', 'event:write'])]
     #[Assert\NotBlank(groups: ['create'])]
-    #[ORM\JoinColumn(nullable: false)]
     private ?User $organizer = null;
 
     /**
