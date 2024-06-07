@@ -28,8 +28,8 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
 ]
 ```
 ### Obtenir un Utilisateur
-- **URL**: /users/{id}
-- **Méthode**: GET
+- **URL**: `/users/{id}`
+- **Méthode**: `GET`
 - **Description**: Récupère les détails d'un utilisateur spécifique.
 - **Paramètres URL**:
 - **id**: L'identifiant de l'utilisateur.
@@ -45,8 +45,8 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
 ## Points d'accès Événement
 
 ### Obtenir une Collection d'Événements
-- **URL**: /events
-- **Méthode**: GET
+- **URL**: `/events`
+- **Méthode**: `GET`
 - **Description**: Récupère une collection de tous les événements.
 - **Réponse**:
 ```json
@@ -74,8 +74,8 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
 
 
 ### Obtenir un Événement
-- **URL**: /events/{id}
-- **Méthode**: GET
+- **URL**: `/events/{id}`
+- **Méthode**: `GET`
 - **Description**: Récupère les détails d'un événement spécifique.
 - **Paramètres URL**:
 - **id**: L'identifiant de l'événement.
@@ -93,8 +93,8 @@ Cette documentation décrit les points d'accès disponibles pour l'API, en se co
 ```
 
 ##Créer un Événement
-- **URL**: /events
-- **Méthode**: POST
+- **URL**: `/events`
+- **Méthode**: `POST`
 - **Description**: Crée un nouvel événement.
 - **Corps de la Requête**:
 ```json
